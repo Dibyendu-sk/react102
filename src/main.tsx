@@ -6,6 +6,8 @@ import App from './App.tsx'
 import Helloworld from './pages/helloWorld.tsx'
 import { Layout } from './Layout.tsx'
 import { Cards } from './pages/tailwindStyling.tsx'
+import { ColorChange } from './pages/ColorChange.tsx'
+import { PasswordGenerator } from './pages/PasswordGenerator.tsx'
 
 export interface employeeObj {
   employee_Id: string,
@@ -26,6 +28,8 @@ const router = createBrowserRouter(
       <Route path='' element={<App />} />
       <Route path='/hello-world' element={<Helloworld />} />
       <Route path='/tailwind-design' element={<Cards employee={employee} company='Asiczen Technologies Pvt ltd' />} />
+      <Route path='/color-change' element={<ColorChange />} />
+      <Route path='/password-generator' element={<PasswordGenerator />} />
     </Route>
   )
 )
