@@ -1,5 +1,5 @@
 import './App.css'
-import Helloworld from "./pages/helloWorld"
+// import Helloworld from "./pages/helloWorld"
 import { Home } from './pages/Home'
 
 
