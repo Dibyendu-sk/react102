@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export function useCurrencyInfo(currency:string) {
+export function useCurrencyInfo(currency: string): Record<string, number> {
     const [data, setData] = useState({})
     useEffect(()=>{
         fetch(

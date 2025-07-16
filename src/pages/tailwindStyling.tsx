@@ -1,5 +1,16 @@
 // import { employeeObj } from "../main"
-export function Cards({ employee, company = "xxxxx" }) {
+type EmployeeObj = {
+    employee_id: String,
+    name: string,
+    age: number,
+    blood_group: string
+}
+
+type EmployeeCardProps = {
+    employee: EmployeeObj,
+    company: string
+}
+export function Cards({employee,company="xxxxx"}: EmployeeCardProps) {
     // console.log(props);
 
     return <>

@@ -9,18 +9,11 @@ import { Cards } from './pages/tailwindStyling.tsx'
 import { ColorChange } from './pages/ColorChange.tsx'
 import { PasswordGenerator } from './pages/PasswordGenerator.tsx'
 import { CurrencyConverter } from './pages/CurrencyConverter.tsx'
-import { CustomInputBox } from './components/inputBox.tsx'
-
-export interface employeeObj {
-  employee_Id: string,
-  name: string,
-  age: number,
-  blood_group: string
-}
+// import { CustomInputBox } from './components/inputBox.tsx'
 
 
-const employee: employeeObj = {
-  employee_Id: "6789tfui6787itftyg8u",
+const employee = {
+  employee_id: "6789tfui6787itftyg8u",
   name: "Dibyendu Kar",
   age: 23,
   blood_group: "O-"
@@ -34,7 +27,7 @@ const router = createBrowserRouter(
       <Route path='/color-change' element={<ColorChange />} />
       <Route path='/password-generator' element={<PasswordGenerator />} />
       <Route path='/currency-converter' element={<CurrencyConverter />} />
-      <Route path='/custom-input' element={<CustomInputBox />} />
+      {/* <Route path='/custom-input' element={<CustomInputBox />} /> */}
     </Route>
   )
 )

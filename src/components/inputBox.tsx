@@ -1,11 +1,24 @@
+type InputProps = {
+    label: string,
+    amount: number,
+    onAmountChange?: (value: number) => void
+    onCurrencyChange?: (value: string) => void
+    currencyOptions: string[]
+    selectedCurrency: string
+    amountDisabled?: boolean
+
+}
+
 export function CustomInputBox(
-    label: any = "from",
-    amount: any = 100,
-    onAmountChange,
-    onCurrencyChange,
-    currencyOptions: any = [],
-    selectedCurrency: any = "usd",
-    amountDisabled: any = false
+    {
+        label,
+        amount,
+        onAmountChange,
+        onCurrencyChange,
+        currencyOptions,
+        selectedCurrency,
+        amountDisabled = false
+    }: InputProps
 ) {
     return <>
         <div className="relative max-w-md mx-auto mt-8">
@@ -25,7 +38,7 @@ export function CustomInputBox(
                     <p className="text-black/40 mb-2 w-full">Currency Type</p>
                     <select className="appearance-none px-4 py-3 bg-blue-900 text-white border border-blue-500 rounded-r-lg hover:bg-blue-950 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200 cursor-pointer pr-10"
                         value={selectedCurrency}
-                        onChange={(e)=>{onCurrencyChange && onCurrencyChange(e.target.value)}}
+                        onChange={(e) => { onCurrencyChange && onCurrencyChange(e.target.value) }}
                     >
                         {/* <option value="option1" selected>{selectedCurrency}</option> */}
                         {/* <option value="option2">Option 2</option>
@@ -34,7 +47,7 @@ export function CustomInputBox(
                         {/* {currencyOptions.map((currency) => (
                             <option value={currency} key={currency}"></option>
                         ))}} */}
-                        {currencyOptions.map((currency)=>(
+                        {currencyOptions.map((currency) => (
                             <option value={currency} key={currency}>{currency}</option>
                         ))}
                     </select>

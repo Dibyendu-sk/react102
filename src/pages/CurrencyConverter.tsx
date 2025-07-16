@@ -18,17 +18,17 @@ export function CurrencyConverter() {
 
 
 
-  const [to, setTo] = useState('INR')
+  const [to, setTo] = useState<string>('INR')
   const [from, setFrom] = useState('USD')
   const [amount, setAmount] = useState(0)
   const [convertedAmount, setConvertedAmount] = useState(0)
   // const [currencyOptions, setCurrencyOptions] = useState<string[]>([]);
   // // const
 
-  const currencyInfo = useCurrencyInfo(from)
-  // console.log(currencyInfo);
+  const currencyInfo: Record<string, number> = useCurrencyInfo(from)
+  console.log(currencyInfo);
 
-  const options = Object.keys(currencyInfo)
+  const options: string[] = Object.keys(currencyInfo)
   // setCurrencyOptions(options)
 
   const Convert = () => {
