@@ -1,8 +1,10 @@
+import { ChevronDown } from 'lucide-react';
+
 type InputProps = {
     label: string,
     amount: number,
-    onAmountChange?: (value: number) => void
-    onCurrencyChange?: (value: string) => void
+    onAmountChange: (value: number) => void
+    onCurrencyChange: (value: string) => void
     currencyOptions: string[]
     selectedCurrency: string
     amountDisabled?: boolean
@@ -21,42 +23,34 @@ export function CustomInputBox(
     }: InputProps
 ) {
     return <>
-        <div className="relative max-w-md mx-auto mt-8">
-            <div className="relative flex">
-                {/* <!-- Input field --> */}
-                <label htmlFor="">{label}</label>
-                <input
-                    type="number"
-                    placeholder="amount"
-                    disabled={amountDisabled}
-                    value={amount}
-                    onChange={(e) => { onAmountChange && onAmountChange(Number(e.target.value)) }}
-                    className="flex-1 px-4 py-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900 placeholder-gray-500"
-                />
-                {/* <!-- Select dropdown --> */}
-                <div className="relative">
-                    <p className="text-black/40 mb-2 w-full">Currency Type</p>
-                    <select className="appearance-none px-4 py-3 bg-blue-900 text-white border border-blue-500 rounded-r-lg hover:bg-blue-950 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200 cursor-pointer pr-10"
-                        value={selectedCurrency}
-                        onChange={(e) => { onCurrencyChange && onCurrencyChange(e.target.value) }}
-                    >
-                        {/* <option value="option1" selected>{selectedCurrency}</option> */}
-                        {/* <option value="option2">Option 2</option>
-                        <option value="option3">Option 3</option>
-                        <option value="special">Special Option</option> */}
-                        {/* {currencyOptions.map((currency) => (
-                            <option value={currency} key={currency}"></option>
-                        ))}} */}
-                        {currencyOptions.map((currency) => (
-                            <option value={currency} key={currency}>{currency}</option>
-                        ))}
-                    </select>
-
-                    {/* <!-- Custom dropdown arrow --> */}
-                    <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
+        <div className=" p-8 border ">
+            {/* <h2 className="text-2xl font-bold text-white mb-6 text-center">Elegant Gradient Style</h2> */}
+            <div className="relative max-w-md mx-auto">
+                <label className="block text-black/90 font-semibold mb-3 text-lg">{label}</label>
+                <div className="relative flex rounded-2xl overflow-hidden shadow-xl border border-purple-400/30">
+                    <input
+                        type="number"
+                        placeholder="Enter amount"
+                        disabled={amountDisabled}
+                        value={amount}
+                        onChange={(e) => onAmountChange(Number(e.target.value))}
+                        className="flex-1 px-6 py-4 bg-gradient-to-r from-blue-500/20 to-blue-500/20 text-white placeholder-white/60 border-0 focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all duration-300 text-lg font-medium"
+                    />
+                    <div className="relative">
+                        <select
+                            className="appearance-none px-6 py-4 bg-gradient-to-r from-blue-600 to-blue-600 text-white border-0 focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all duration-300 cursor-pointer pr-12 font-medium hover:from-blue-700 hover:to-blue-70"
+                            value={selectedCurrency}
+                            onChange={(e) => onCurrencyChange(e.target.value)}
+                        >
+                            {currencyOptions.map((currency) => (
+                                <option value={currency} key={currency} className="bg-blue-800 text-white">
+                                    {currency}
+                                </option>
+                            ))}
+                        </select>
+                        <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
+                            <ChevronDown className="w-5 h-5 text-white" />
+                        </div>
                     </div>
                 </div>
             </div>
